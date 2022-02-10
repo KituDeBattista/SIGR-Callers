@@ -6,7 +6,7 @@
 #define WIFI_SSID "Kituuu"
 #define WIFI_PASSWORD "41819096"
 
-#define MQTT_HOST IPAddress(192, 168, 101, 7)
+#define MQTT_HOST IPAddress(192, 168, 101, 12)
 #define MQTT_PORT 1883
 
 AsyncMqttClient mqttClient;
@@ -81,20 +81,6 @@ void onMqttUnsubscribe(uint16_t packetId) {
 
 void onMqttMessage(char* topic, char* payload, AsyncMqttClientMessageProperties properties, size_t len, size_t index, size_t total) {
   Serial.println("Publish received.");
-  Serial.print("  topic: ");
-  Serial.println(topic);
-  Serial.print("  qos: ");
-  Serial.println(properties.qos);
-  Serial.print("  dup: ");
-  Serial.println(properties.dup);
-  Serial.print("  retain: ");
-  Serial.println(properties.retain);
-  Serial.print("  len: ");
-  Serial.println(len);
-  Serial.print("  index: ");
-  Serial.println(index);
-  Serial.print("  total: ");
-  Serial.println(total);
 }
 
 void onMqttPublish(uint16_t packetId) {
